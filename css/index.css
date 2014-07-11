@@ -1,0 +1,333 @@
+/**
+ *@descirption 
+ *@author creditease
+ *@date   2014/07/07
+*/
+html, body {
+    font-size: 62.5%;
+}
+
+.content {
+    max-width: 420px;
+    margin: 0 auto;
+    background: #ffffff;
+    font-family: '微软雅黑' 'Microsoft YaHei' \5FAE\8F6F\96C5\9ED1;
+}
+
+.navLogs, .navLogTwo {
+    height: 54px;
+    width: auto;
+}
+
+.navLogThree {
+    width: 100%;
+    height: auto;
+}
+
+.main_text {
+    padding: 11px 3.65%;
+}
+
+.main_text:after {
+    display: block;
+    content: '';
+    visibility: hidden;
+    clear: both;
+}
+
+.introduce, a.a_link {
+    display: block;
+    font-family: '微软雅黑' 'Microsoft YaHei' \5FAE\8F6F\96C5\9ED1;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+strong.part2 {
+    margin-top: 9px;
+}
+
+strong:nth-child(5) {
+    margin-bottom: 10px;
+    float: left;
+
+}
+
+a.a_link {
+    float: right;
+    color: #7690ab;
+    text-decoration: underline;
+}
+
+.downTrips {
+    margin-bottom: 6px;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #336699;
+    clear: both;
+}
+
+input[type="button"] {
+    display: block;
+    margin: 0 auto;
+
+    border: 0px;
+    background: #ef5959;
+    color: #ffffff;
+    height: 36px;
+    width: 71.875%;
+    font-size: 1.5rem;
+}
+
+.sectionPart2 {
+    margin-top: 20px;
+    position: relative;
+    border-bottom: 2px solid #c8c8c8;
+}
+
+/*注册表单*/
+#register {
+    height: 37px;
+    line-height: 37px;
+    background: #f2f2f2;
+    color: #919191;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#error_trips {
+    color: rgb(255, 0, 0);
+    font-size: 1.4rem;
+    display: block;
+    position: relative;
+    height: auto;
+    left: 3.75%;
+}
+
+.formBlock {
+    margin: 24px 3.75% 12px 3.75%;
+}
+
+.iphoneNumber, .codeTextOne, .codeTextTwo, .message, .password, .imgCode, .zhuce {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 36px;
+    font-size: 1.5rem;
+}
+
+.iphoneNumber, .codeTextOne, .codeTextTwo, .message, .password, .imgCode {
+    margin-bottom: 9px;
+}
+
+.iphoneNumber, .password {
+    width: 100%;
+    border: 1px solid #b4b4b4;
+    padding-left: 10px;
+}
+
+.message, .imgCode {
+    float: left;
+    width: 26.63%;
+    line-height: 36px;
+    text-align: center;
+    background: #c1c1c1;
+    color: #5f5f5f;
+}
+
+.codeTextOne, .codeTextTwo {
+    width: 69.27%;
+    float: right;
+    padding-left: 8px;
+    border: 1px solid #b4b4b4;
+}
+
+.imgDIv:after {
+    display: block;
+    visibility: hidden;
+    content: '';
+    clear: both;
+}
+
+.zhuce {
+    border: 0px;
+    margin: 0 auto;
+    margin-top: 13px;
+    background: #829ebb;
+    color: #e4e9ef;
+    width: 58.3%;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance: checkbox;
+    width: 20px;
+    height: 20px;
+}
+
+.xiyispan {
+    font-size: 1.6rem;
+}
+
+.xiyi {
+    text-decoration: none;
+    color: #7690ab;
+}
+
+.a_linkWeb {
+    display: block;
+    margin-top: 13px;
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #7993ad;
+}
+
+/*sectionPart3*/
+.sectionPart3 {
+    margin: 14px 4%;
+}
+
+.sectionPart3:after {
+    display: block;
+    visibility: hidden;
+    content: "";
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.iphonetime {
+    color: #336699;
+    font-size: 1.5rem;
+}
+
+.iphoneStrong {
+    color: #336699;
+    font-size: 1.7rem;
+}
+
+.right img {
+    width: 110px;
+    height: auto;
+}
+
+/*注册成功后的提示框 start*/
+.top{
+    display: none;
+    position: absolute;
+    top:0px;
+    background: rgba(112,112,112,0.6);
+}
+.tripswindow{
+    margin-top: 60%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 300px;
+
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    height: auto;
+    background: #fafafa;
+    padding: 16px 12px;
+}
+.trips{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.topButo{
+    display: inline-block;
+    width: 43%;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: #1e93db;
+    border-radius: 2px;
+}
+.topButoRight{
+    float: right;
+}
+/*注册成功后的提示框 end*/
+
+
+/*隐藏的*/
+.hide {
+    display: none;
+}
+
+.focus {
+    border: 1px solid #1e93db;
+    color: black;
+}
+
+.focusError {
+    border: 1px solid red;
+    color: red;
+}
+
+/*触摸按下后的结果*/
+.downAppTouch {
+
+}
+
+.registerTouch {
+    background: #758ea8;
+    color: #e5e5e5;
+}
+
+@media only screen and (min-width: 340px ) and (max-width: 400px)  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .introduce, a.a_link {
+        font-size: 1.6rem;
+    }
+
+    strong.part2 {
+        margin-top: 11px;
+    }
+
+    strong:nth-child(5) {
+        margin-bottom: 12px;
+    }
+
+    .downTrips {
+        margin-bottom: 9px;
+        font-size: 1.7rem;
+    }
+
+    input[type='button'] {
+        height: 40px;
+        font-size: 1.7rem;
+    }
+
+    #register {
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.7rem;
+    }
+
+    .formBlock {
+        margin: 28px 3.75% 14px 3.75%;
+    }
+
+    .iphoneNumber, .codeTextOne, .codeTextTwo, .message, .password, .imgCode, .zhuce {
+        font-size: 1.6rem;
+    }
+
+    input[type='checkbox'] {
+        -webkit-appearance: checkbox;
+        width: 22px;
+        height: 22px;
+    }
+
+    .xiyispan {
+        font-size: 1.7rem;
+    }
+}

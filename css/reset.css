@@ -7,7 +7,7 @@ body, h1, h2, h3, h4, h5, h6, p, form,main {
     margin: 0;
 }
 
-ol, ul, input[type=checkbox] {
+ol, ul {
     margin: 0;
     padding: 0;
 }

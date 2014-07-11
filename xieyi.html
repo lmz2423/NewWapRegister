@@ -22,12 +22,12 @@
 
         h1 {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             line-height: 3rem;
         }
 
         h5 {
-            font-size: 2rem;
+            font-size: 1.7rem;
             text-indent: 3.6rem;
             line-height: 28px;
         }
@@ -36,7 +36,7 @@
         }
 
         p {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             line-height: 2.2rem;
             text-indent: 3.6rem;
         }
@@ -52,12 +52,12 @@
         }
         @media only screen and (min-width: 340px ) and (max-width: 400px)  and (-webkit-min-device-pixel-ratio: 1.5) {
             h1 {
-                font-size: 2.4rem;
+                font-size: 2.1rem;
                 line-height: 3.5rem;
             }
 
             h5 {
-                font-size: 2.1rem;
+                font-size: 1.8rem;
                 text-indent: 3.6rem;
                 line-height: 30px;
             }
@@ -65,7 +65,7 @@
                 color: #7690ab;
             }
             p {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
                 line-height: 2.2rem;
                 text-indent: 3.6rem;
             }
@@ -219,10 +219,10 @@
         var closeButton =  document.querySelector('.closePage');
 
         closeButton.addEventListener('click',function(){
-            window.close();
+            history.go(-1);
         });
         closeButton.addEventListener('touchend',function(){
-            window.close();
+            history.go(-1);
         });
     }());
 </script>
