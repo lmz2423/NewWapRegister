@@ -46,13 +46,16 @@ strong.part2 {
     margin-top: 9px;
 }
 
-strong:nth-child(5) {
+strong:nth-child(2) {
     margin-bottom: 10px;
     float: left;
 
 }
 
 a.a_link {
+    margin-top: 9px;
+    margin-bottom: 10px;
+    display: block;
     float: right;
     color: #7690ab;
     text-decoration: underline;

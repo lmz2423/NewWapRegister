@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>宜人贷刮奖拿现金</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no,width=device-width"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        body{
+
+        }
+        .img{
+            margin: 0 auto;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .buttonDiv{
+            width: 100%;
+            height: 100%;
+            z-index: 300;
+            position: absolute;
+            top:0px;
+
+        }
+
+        p{
+
+            display: block;
+            position: absolute;
+            width: 100%;
+            top:77.2%;
+            font-size: 1.6rem;
+            color:#f7ebda;
+        }
+        .registerButton{
+            text-decoration: none;
+            display: block;
+            position: absolute;
+            bottom: 10%;
+            margin-left:16.5%;
+            width: 67%;
+            color:#ffffff;
+            height: 34px;
+            line-height: 34px;
+            font-size:1.7rem ;
+            background: #bf4747;
+            border-radius: 5px;
+            border: 0px;
+
+        }
+        .buttonHover{
+            background: #983939;
+        }
+        @media only screen and (min-width: 340px ) and (max-width: 400px)  and (-webkit-min-device-pixel-ratio: 1.5) {
+            .registerButton{
+                height: 38px;
+                font-size: 1.8rem;
+                line-height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <div class="img">
+         <img src="image/backgroud.jpg" alt="" id="imgId"/>
+         <div class="buttonDiv">
+             <p>刮奖后注册还款可抵现</p>
+             <a type="button"  class="registerButton" href="xx.html">刮奖并注册</a>
+         </div>
+     </div>
+</body>
+<script type="text/javascript">
+    (function(){
+        window.addEventListener("load",function(){
+            'use strict';
+            var imgId = document.getElementById("imgId"),
+                    bodys =document.querySelector("body"),
+                    imgDIv = document.querySelector(".img"),
+                    registerButton = document.querySelector(".registerButton"),
+                    height = imgId.clientHeight;
+            imgDIv.style.height =height + 'px';
+            bodys.style.height = height + 'px';
+            registerButton.addEventListener("touchstart",function(){
+                this.classList.add("buttonHover");
+            });
+            registerButton.addEventListener("touchend",function(){
+                this.classList.remove("buttonHover");
+//                location.href ="xx.html";
+            });
+        });
+    }());
+</script>
+
+</html>
