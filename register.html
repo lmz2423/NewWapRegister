@@ -20,7 +20,7 @@
     <div class="main_text">
         <strong class="introduce">"宜人贷"是宜信公司推出的无抵押网络借款咨询服务平台</strong>
         <strong class="introduce part2">最高可贷50万 最快当天放款</strong>
-       <a class="a_link" href="more.html">更多</a>
+        <a class="a_link" href="more.html">更多</a>
     </div>
 
     <section>
@@ -34,14 +34,15 @@
 
         <form method="post" action="register.html" class="formBlock">
             <input type="text" placeholder="手机号" class="iphoneNumber" data-value="iphone">
-            <span class="message hide">获取验证码</span><input type="text" placeholder="请输入验证码" class="codeTextOne hide"
-                                                          data-value="messageValue">
+            <!--<span class="message hide">获取验证码</span><input type="text" placeholder="请输入验证码" class="codeTextOne hide"-->
+            <!--data-value="messageValue" autofocus="">-->
             <input type="text" placeholder="密码6-16字符" class="password" data-value="passwordValue">
 
             <div class="imgDIv">
                 <img src="" alt="图形验证码" title="图形验证码" class="imgCode"><input type="text" placeholder="请输入验证码"
                                                                              class="codeTextTwo"
-                                                                             data-value="imageValue" autocorrect="off" autocapitalize="off">
+                                                                             data-value="imageValue" autocorrect="off"
+                                                                             autocapitalize="off">
             </div>
             <input type="checkbox" checked class="ischecked"> <span class="xiyispan">同意<a href="xieyi.html"
                                                                                           class="xiyi">《宜人贷注册协议》</a></span>
@@ -66,9 +67,35 @@
 
 </div>
 <div class="top">
-    <div class="tripswindow">
-        <p class="trips">您的在线预约申请已提交！请不要重复提交数据!谢谢支持!</p>
-        <span class="topButo">关闭</span><span class="topButo topButoRight">立即下载</span>
+    <!--<div class="tripswindow">-->
+    <!--<p class="trips">您的在线预约申请已提交！请不要重复提交数据!谢谢支持!</p>-->
+    <!--<span class="topButo">关闭</span><span class="topButo topButoRight">立即下载</span>-->
+    <!--</div>-->
+    <div class="tripswindow tripswindowOne">
+        <p class="trips">为确认你的手机可用，校验码己经发送到您的手机上</p>
+        <p class="error"></p>
+        <span class="message">获取验证码</span><input type="text" placeholder="请输入验证码" class="codeTextOne"
+                                                 data-value="messageValue">
+
+        <span class="finalRegister">完成注册</span>
+    </div>
+    <div class=" tripswindow tripswindowSecond ">
+        <p class="tripsOne">注册成功</p>
+
+        <p class="trips tripsSecond">下载客户端提交借款申请,独享优先专线服务</p>
+
+        <span class="left">关闭</span>
+        <span class="right">立即下载</span>
+
+        <div class="clearFloat"></div>
+    </div>
+    <div class=" tripswindow tripswindowThree">
+
+        <p class="trips tripsSecond">未成功注册，系统发送短信验证码失败！您可以联系客服400-060-9191获取</p>
+        <span class="left">关闭</span>
+        <a class="right" href="tel:400-060-9191">立即拨打</a>
+
+        <div class="clearFloat"></div>
     </div>
 </div>
 

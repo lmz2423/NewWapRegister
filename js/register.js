@@ -14,8 +14,11 @@
         imgCodeSpan = $(".imgCode"),
         errorText = $("#error_trips"),
         imgCodeValue = document.querySelector(".codeTextTwo"),
-        timeOut = 60,
-        is_hide = true;
+        bodys = document.querySelector("body"),
+        closeSpan = $("span.left"),
+        finalRegister =document.querySelector(".finalRegister"),
+        timeOut = 60;
+//        is_hide = true;
 
     //判断事件
     var errorTextConfig = {
@@ -65,13 +68,41 @@
             dataType: 'json',
             type: 'post',
             success: function (obj) {
-                if (obj.code != 200) {
-                    alert(obj.msg);
+                //获取短信验证码失败
+                if(failed){
+                    getMessageCodeFail();
+                }
+                //获取短信验证码成功
+                if(success){
+                    getMessageCodeSuccess();
                 }
             }
         });
     }
 
+    //发送短信失败
+    function getMessageCodeFail() {
+           var tripswindowThree = document.querySelector(".tripswindowThree"),
+               top = document.querySelector(".top");
+        tripswindowThree.style.display = "block";
+        top.style.display ="block";
+
+    }
+    //发送短信成功
+    function getMessageCodeSuccess(){
+        var tripswindowOne = document.querySelector(".tripswindowOne"),
+            top = document.querySelector(".top");
+        tripswindowOne.style.display ="block";
+        top.style.display ="block";
+        changeText();
+    }
+    //注册成功
+    function registerSuccess(){
+        var tripswindowSecond = document.querySelector(".tripswindowSecond"),
+            top = document.querySelector(".top");
+        tripswindowSecond.style.display ="block";
+        top.style.display ="block";
+    }
     //发送验证码
     mgCodeSpan.on("click", function () {
         if (timeOut <= 0) {
@@ -102,7 +133,7 @@
         errorArray[1] = new Array();
         e.preventDefault();
         var iphoneValue = iphoneNumberValue.value.trim(),
-            mgCodeValueText = mgCodeValue.value,
+//            mgCodeValueText = mgCodeValue.value,
             passwordValueText = psswordValue.value,
             imgValueText = imgCodeValue.value.trim();
         if (iphoneValue.length === 0) {
@@ -114,16 +145,12 @@
             errorArray[0].push(iphoneNumberValue);
             errorArray[1].push(errorTextConfig.iphone.errorRule);
         }
-        if (mgCodeValueText.trim() === "") {
-            errorArray[0].push(mgCodeValue);
-            errorArray[1].push(errorTextConfig.mgCode.empty)
-        }
         if (passwordValueText === "") {
             errorArray[0].push(psswordValue);
             errorArray[1].push(errorTextConfig.password.empty);
         }
 
-       else if (passwordValueText.length < pwd.minLength || passwordValueText.length > pwd.maxLength) {
+        else if (passwordValueText.length < pwd.minLength || passwordValueText.length > pwd.maxLength) {
             errorArray[0].push(psswordValue);
             errorArray[1].push(errorTextConfig.password.errorRule);
         }
@@ -136,11 +163,11 @@
             errorArray[1].push(errorTextConfig.checked.errorRule);
         }
         var i = 0, length = errorArray[0].length,
-            erroTexts="";
+            erroTexts = "";
         for (i; i < length; i = i + 1) {
             errorArray[0][0].focus();
             errorArray[0][i].classList.add("focusError");
-            erroTexts +=errorArray[1][i];
+            erroTexts += errorArray[1][i];
         }
         errorText.text(erroTexts);
 
@@ -149,27 +176,22 @@
         }
         //表单通过时，提交服务端
         else {
-            var closeWindow = document.querySelector(".top"),
-                content = document.querySelector(".content");
-            closeWindow.style.display="block";
-            closeWindow.style.width = window.innerWidth + 'px';
-            closeWindow.style.height = screen.height +'px';
-//            closeWindow.style.top =  -3 +'px';
-            window.scrollTo(0,0) ;
-//            $.ajax({
-//                url: "url",
-//                data: {},
-//                dataType: 'json',
-//                type: 'post',
-//                success: function (obj) {
-//                    //
-//                }
-//            })
-//            setInterval(function(){
-//                closeWindow.style.top = 0 + 'px';
-//            },60);
+            window.scrollTo(0, 0);
+            bodys.scrollTop = 0;
+            $.ajax({
+                url: "url",
+                data: {},
+                dataType: 'json',
+                type: 'post',
+                success: function (obj) {
+                    //成功后发送短信
+                    if(success) {
+                        getSmsCodeAgain();
+                    }
+                }
+            });
+
         }
-        ;
     });
 
 
@@ -202,14 +224,13 @@
     iphoneNumberValue.addEventListener('input', function (e) {
         var iphoneValue = iphoneNumberValue.value.trim();
         if ((/^1[3|4|5|8|7][0-9]\d{4,8}$/.test(iphoneValue)) && iphoneValue.length === 11) {
-            if (is_hide) {
-                this.classList.remove('focusError');
-                mgCodeSpan.removeClass('hide');
-                mgCodeValue.classList.remove('hide');
-                mgCodeValue.focus();
-                is_hide = false;
-                changeText();
-                getSmsCodeAgain('{$post.userName}');
+            this.classList.remove('focusError');
+            //判断密码是否为空，
+            if (psswordValue.value === "") {
+                psswordValue.focus();
+            }
+            else if ((psswordValue.value.length >= pwd.minLength) && (psswordValue.value.length <= pwd.minLength) && imgCodeValue.value.trim() === "") {
+                imgCodeValue.focus();
             }
         }
     });
@@ -224,13 +245,38 @@
         }
     });
 
-    mgCodeValue.addEventListener('keyup', function (e) {
-        if (e.keyCode === 13) {
-            if (psswordValue.value === "" && imgCodeValue.value === "") {
-                e.preventDefault();
-                e.stopPropagation();
-                psswordValue.focus();
-            }
+    //关闭按钮
+    closeSpan.on("tap",function(){
+        closeSpan.css({display:"none"});
+        $(".top").css({display:"none"});
+    });
+
+    // 提交短信验证码
+    finalRegister.addEventListener("touchstart",function(){
+        var messgCode = mgCodeValue.value.trim(),
+           errors = $(".error");
+        if(messgCode===""){
+            errors.text(errorTextConfig.mgCode.empty);
+        }
+        else{
+            $.ajax({
+                url: "url",
+                data: {},
+                dataType: 'json',
+                type: 'post',
+                success: function (obj) {
+                      //提交短信成功
+                    if(sucess){
+                        var second = document.querySelector(".tripswindowOne");
+                        second.style.display ="none";
+                        registerSuccess();
+                    }
+                    //验证码不对
+                    if(error){
+                        errors.text(error.mgg);
+                    }
+                }
+            });
         }
     });
 
@@ -258,20 +304,19 @@
 
 }());
 //注册成功后的提交表单
-(function(){
+(function () {
     'use strict';
     var closeWidth = window.innerWidth,
-
-        closeHeight = screen.height,
+        bodys = document.querySelector(".content"),
+        closeHeight = bodys.clientHeight,
         closeWindow = document.querySelector(".top"),
-        tripswindow = document.querySelector(".tripswindow");
-
-    tripswindow.style.marginTop = window.innerHeight * 0.35 + 'px';
-
-
+        tripswindow = document.querySelectorAll(".tripswindow");
+    for (var i = 0; i < tripswindow.length; i += 1) {
+        tripswindow[i].style.marginTop = window.innerHeight * 0.45 + 'px';
+    }
     closeWindow.style.width = closeWidth + 'px';
-    closeWindow.style.height = closeHeight +'px';
-    closeWindow.addEventListener("touchmove",function(e){
+    closeWindow.style.height = closeHeight + 'px';
+    closeWindow.addEventListener("touchmove", function (e) {
         e.preventDefault();
     });
 }());
