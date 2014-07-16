@@ -62,22 +62,22 @@
 
     //重新短信获取验证码
     function getSmsCodeAgain(mobile) {
-        $.ajax({
-            url: "{:U('WebCard/ajaxGetCode')}",
-            data: {"mobile": mobile},
-            dataType: 'json',
-            type: 'post',
-            success: function (obj) {
-                //获取短信验证码失败
-                if(failed){
+//        $.ajax({
+//            url: "{:U('WebCard/ajaxGetCode')}",
+//            data: {"mobile": mobile},
+//            dataType: 'json',
+//            type: 'post',
+//            success: function (obj) {
+//                //获取短信验证码失败
+//                if(failed){
                     getMessageCodeFail();
-                }
-                //获取短信验证码成功
-                if(success){
-                    getMessageCodeSuccess();
-                }
-            }
-        });
+//                }
+//                //获取短信验证码成功
+//                if(success){
+//                    getMessageCodeSuccess();
+//                }
+//            }
+//        });
     }
 
     //发送短信失败
@@ -178,18 +178,18 @@
         else {
             window.scrollTo(0, 0);
             bodys.scrollTop = 0;
-            $.ajax({
-                url: "url",
-                data: {},
-                dataType: 'json',
-                type: 'post',
-                success: function (obj) {
-                    //成功后发送短信
-                    if(success) {
+//            $.ajax({
+//                url: "url",
+//                data: {},
+//                dataType: 'json',
+//                type: 'post',
+//                success: function (obj) {
+//                    //成功后发送短信
+//                    if(success) {
                         getSmsCodeAgain();
-                    }
-                }
-            });
+//                    }
+//                }
+//            });
 
         }
     });
@@ -247,7 +247,8 @@
 
     //关闭按钮
     closeSpan.on("tap",function(){
-        closeSpan.css({display:"none"});
+        var tripswindow = $(".tripswindow");
+        tripswindow.css({display:"none"});
         $(".top").css({display:"none"});
     });
 
